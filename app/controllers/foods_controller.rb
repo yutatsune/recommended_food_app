@@ -9,11 +9,17 @@ class FoodsController < ApplicationController
 
   def create
     food = current_user.foods.create!(food_params)
-    redirect_to foods_path
+    redirect_to root_path
   end
 
   def show
     @food = Food.find(params[:id])
+  end
+
+  def destroy
+    @food = current_user.foods.find(params[:id])
+    @food.destroy!
+    redirect_to root_path
   end
 
   private
