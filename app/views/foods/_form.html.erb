@@ -1,5 +1,6 @@
 <%= form_with model: @food, local: true do |f| %>
   <p>料理名 <%= f.text_field :name, required: true %></p>
+  <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
   <p>コメント <%= f.text_area :comment %></p>
   <%= f.submit "送信" %>
 <% end %>
